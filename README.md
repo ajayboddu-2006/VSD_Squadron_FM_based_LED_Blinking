@@ -12,7 +12,10 @@ The primary objective of this project is to demonstrate the control of an RGB LE
 
 The Verilog code is structured as a single module that interfaces with the hardware components of the VSDSquadron FM board. Below is a breakdown of the module and its functionality.
 
+---
+
 ### Module Declaration
+
 
 The module is declared with the following input and output ports:
 
@@ -121,6 +124,8 @@ SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC (
 This section of the code instantiates an RGB driver module (`SB_RGBA_DRV`) that controls an RGB LED. Let's break down the code to understand how the RGB LED is being controlled.
 
 #### SB_RGBA_DRV Instantiation:
+
+
 
 ```
 
