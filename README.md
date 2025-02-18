@@ -161,7 +161,6 @@ SB_RGBA_DRV RGB_DRIVER (
 - **`.CURREN(1'b1)`**: This parameter is used to enable the current driving capability for the RGB LEDs. Setting it to `1'b1` ensures that the current is supplied to the RGB LEDs, allowing them to be powered and illuminated.
 - **`.RGB0(led_red)`**, **`.RGB1(led_green)`**, **`.RGB2(led_blue)`**: These are the actual hardware connections for the red, green, and blue LEDs. These signals (`led_red`, `led_green`, `led_blue`) are connected to the physical pins that control the RGB LEDs.
 
-<br>
 
 #### defparam Statements:
 
@@ -192,7 +191,7 @@ This Verilog code demonstrates the way to control an RGB LED and generate a blin
 
 PCF stands for “Physical Constraints File”. The PCF is a critical component in FPGA design, and for the projects on VSDSquadron FM board. It defines how the logical signals in your design are mapped to the physical pins of the FPGA.
 
-<br>
+
 
 ### Need for pcf file                                                                                                                
 
@@ -201,7 +200,6 @@ PCF stands for “Physical Constraints File”. The PCF is a critical component 
 - The VSDSquadron FM board has specific GPIO pins connected to the RGB LED. To control the LED, you need to tell the FPGA which physical pins correspond to the red, green, and blue channels of the LED.
 - Without a PCF file, the FPGA tools won't know how to map your design's logical signals (e.g., led_red, led_green, led_blue) to the actual hardware pins.
 
-<br>
 
 ### Purpose of PCF File                                                                                                      
 
@@ -213,7 +211,7 @@ PCF stands for “Physical Constraints File”. The PCF is a critical component 
         - Pin for the blue LED channel
 - ardware-Specific Configuration: It ensures your design aligns with the VSDSquadron FM board's hardware layout, preventing errors like incorrect signal routing or pin conflicts.
 
-<br>
+
 
 ### PCF file for led blink                                                                                                                            
 
