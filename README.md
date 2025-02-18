@@ -20,20 +20,6 @@ The Verilog code is structured as a single module that interfaces with the hardw
 
 The module is declared with the following input and output ports:
 
-```
-
-module top ( 
-	output wire led_red , 
-	output wire led_blue , 
-	output wire led_green , 
-           input wire hw_clk, 
-	output wire testwire
- ); 
-
- ```
-
-
-
 ```verilog
 module top ( 
     // Output wires for RGB LED control
@@ -73,7 +59,7 @@ module top (
 
 The provided code snippet declares two variables:
 
-```
+```verilog
 
     wire int_osc;
     reg [27:0] frequency_counter_i;
@@ -99,7 +85,7 @@ The provided code snippet declares two variables:
 
 ---
 
-```
+```verilog
 
 assign testwire = frequency_counter_i[5]; 
 always @(posedge int_osc) begin 
@@ -125,7 +111,7 @@ end
 
 This code segment instantiates an internal high-frequency oscillator (SB_HFOSC) available in Lattice FPGAs. It generates a clock signal (`int_osc`) for use in the design.
 
-```
+```verilog
 
 SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC (  
     .CLKHFPU(1'b1),  // Power-up enable  
@@ -155,7 +141,7 @@ This section of the code instantiates an RGB driver module (`SB_RGBA_DRV`) that 
 
 
 
-```
+```verilog
 
 SB_RGBA_DRV RGB_DRIVER (
     .RGBLEDEN(1'b1),
@@ -182,7 +168,7 @@ SB_RGBA_DRV RGB_DRIVER (
 
 ---
 
-```
+```verilog
 defparam RGB_DRIVER.RGB0_CURRENT = "0b000001";
 defparam RGB_DRIVER.RGB1_CURRENT = "0b000001";
 defparam RGB_DRIVER.RGB2_CURRENT = "0b000001";
