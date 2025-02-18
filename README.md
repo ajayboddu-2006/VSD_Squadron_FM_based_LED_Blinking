@@ -5,17 +5,17 @@
 
 This project involves the implementation of an RGB LED blink functionality on the VSDSquadron FM board using Verilog HDL. The VSDSquadron FM board is a versatile and compact FPGA development platform designed for embedded systems, IoT applications, and hardware prototyping. It features a Lattice ICE40UP5K FPGA, which is known for its low power consumption and high performance, making it an ideal choice for projects requiring efficient hardware control and signal processing.
 
-The primary objective of this project is to demonstrate the control of an RGB LED using Verilog HDL. The RGB LED is driven by its red, green, and blue channels, each controlled with specific timing and intensity to create a blinking effect. The design leverages the internal oscillator of the FPGA and a frequency counter to generate precise clock signals, ensuring accurate timing for the LED blink patterns.
+The primary objective of this project is to demonstrate the control of an RGB LED using Verilog HDL. The RGB LED is driven by its red, green, and blue channels, each controlled with specific timing and intensity to create a blinking effect. The design leverages the internal oscillator of the FPGA and a frequency counter to generate precise clock signals, ensuring accurate timing for the LED blink patterns.  
 
 
 
 ## Verilog Code Review
 
-The Verilog code is structured as a single module that interfaces with the hardware components of the VSDSquadron FM board. Below is a breakdown of the module and its functionality.
+The Verilog code is structured as a single module that interfaces with the hardware components of the VSDSquadron FM board. Below is a breakdown of the module and its functionality.  
 
 
 
-### Module Declaration
+### Module Declaration  
 
 ---
 
@@ -33,6 +33,9 @@ module top (
 
  ```
 
+
+
+
 #### Output Ports:
 - **`output wire led_red`**
   - Purpose: This output port controls the red channel of the RGB LED.
@@ -46,6 +49,10 @@ module top (
 #### Input Ports:
 - **`input wire hw_clk`**
   - Purpose: This is the hardware oscillator clock input, which serves as the primary clock signal for the design.
+
+
+
+
 
 
 ### Variable Declaration
@@ -76,6 +83,9 @@ The provided code snippet declares two variables:
 
 
 
+
+  
+
 ### Counter Functionality
 
 ---
@@ -97,6 +107,9 @@ end
 - **Usage**:
   - The counter is used to divide the high-frequency `int_osc` clock into a lower-frequency signal.
   - Specific bits of the counter (e.g., `frequency_counter_i[27]`) can be used to control the timing of the RGB LED blink or other time-dependent logic in the design.
+
+
+
 
 
 
@@ -123,6 +136,10 @@ SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC (
 - **`.CLKHFEN(1'b1)`**: Enables the oscillator.
 - **`.CLKHF(int_osc)`**: Outputs the generated clock signal (`int_osc`).
 - This clock (`int_osc`) can be used to drive sequential logic, such as blinking an LED on the VSDSquadron FM board.
+
+
+
+
 
 
 ### Instantiation of RGB Primitive
@@ -157,6 +174,8 @@ SB_RGBA_DRV RGB_DRIVER (
 - **`.CURREN(1'b1)`**: This parameter is used to enable the current driving capability for the RGB LEDs. Setting it to `1'b1` ensures that the current is supplied to the RGB LEDs, allowing them to be powered and illuminated.
 - **`.RGB0(led_red)`**, **`.RGB1(led_green)`**, **`.RGB2(led_blue)`**: These are the actual hardware connections for the red, green, and blue LEDs. These signals (`led_red`, `led_green`, `led_blue`) are connected to the physical pins that control the RGB LEDs.
 
+
+
 #### defparam Statements:
 
 ---
@@ -172,14 +191,22 @@ These `defparam` statements set the current for each of the RGB LEDs. The curren
 
 
 
-## Final Observations from Verilog code
+
+
+
+### Final Observations from Verilog code
 
 ---
 
 This Verilog code demonstrates the way to control an RGB LED and generate a blinking effect using an FPGA. The internal oscillator provides the clock signal, the frequency counter creates a periodic signal, and the RGB driver controls the LED states. By adjusting the counter size or the clock division factor, the blinking frequency can be modified. This code serves as a foundational example for more complex LED control and timing applications in FPGA designs.
 
 
-## Creation of pcf file                                                                                        
+
+
+
+
+
+### Creation of pcf file                                                                                        
 
 ---
 
