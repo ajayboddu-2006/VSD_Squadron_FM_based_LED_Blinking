@@ -206,7 +206,7 @@ This Verilog code demonstrates the way to control an RGB LED and generate a blin
 
 
 
-### Creation of pcf file                                                                                        
+## Creation of pcf file                                                                                        
 
 ---
 
