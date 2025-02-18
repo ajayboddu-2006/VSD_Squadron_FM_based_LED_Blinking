@@ -2,20 +2,25 @@
 
 ## Introduction
 
+---
+
 This project involves the implementation of an RGB LED blink functionality on the VSDSquadron FM board using Verilog HDL. The VSDSquadron FM board is a versatile and compact FPGA development platform designed for embedded systems, IoT applications, and hardware prototyping. It features a Lattice ICE40UP5K FPGA, which is known for its low power consumption and high performance, making it an ideal choice for projects requiring efficient hardware control and signal processing.
 
 The primary objective of this project is to demonstrate the control of an RGB LED using Verilog HDL. The RGB LED is driven by its red, green, and blue channels, each controlled with specific timing and intensity to create a blinking effect. The design leverages the internal oscillator of the FPGA and a frequency counter to generate precise clock signals, ensuring accurate timing for the LED blink patterns.
 
----
+
 
 ## Verilog Code Review
 
+---
+
 The Verilog code is structured as a single module that interfaces with the hardware components of the VSDSquadron FM board. Below is a breakdown of the module and its functionality.
 
----
+
 
 ### Module Declaration
 
+---
 
 The module is declared with the following input and output ports:
 
@@ -45,9 +50,10 @@ module top (
 - **`input wire hw_clk`**
   - Purpose: This is the hardware oscillator clock input, which serves as the primary clock signal for the design.
 
----
 
 ### Variable Declaration
+
+---
 
 The provided code snippet declares two variables:
 
@@ -71,9 +77,11 @@ The provided code snippet declares two variables:
     - Once the counter reaches its maximum value (2^28 - 1), it overflows and resets to zero, creating a periodic signal.
     - The overflow signal or specific bits of the counter can be used to control the timing of the RGB LED blink. For example, the most significant bit (MSB) of the counter can toggle at a much lower frequency, creating a visible blink rate for the LED.
 
----
+
 
 ### Counter Functionality
+
+---
 
 ```
 
@@ -93,9 +101,11 @@ end
   - The counter is used to divide the high-frequency `int_osc` clock into a lower-frequency signal.
   - Specific bits of the counter (e.g., `frequency_counter_i[27]`) can be used to control the timing of the RGB LED blink or other time-dependent logic in the design.
 
----
+
 
 ### Internal Oscillator
+
+--- 
 
 This code segment instantiates an internal high-frequency oscillator (SB_HFOSC) available in Lattice FPGAs. It generates a clock signal (`int_osc`) for use in the design.
 
@@ -117,9 +127,10 @@ SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC (
 - **`.CLKHF(int_osc)`**: Outputs the generated clock signal (`int_osc`).
 - This clock (`int_osc`) can be used to drive sequential logic, such as blinking an LED on the VSDSquadron FM board.
 
----
 
 ### Instantiation of RGB Primitive
+
+---
 
 This section of the code instantiates an RGB driver module (`SB_RGBA_DRV`) that controls an RGB LED. Let's break down the code to understand how the RGB LED is being controlled.
 
@@ -151,6 +162,8 @@ SB_RGBA_DRV RGB_DRIVER (
 
 #### defparam Statements:
 
+---
+
 ```
 defparam RGB_DRIVER.RGB0_CURRENT = "0b000001";
 defparam RGB_DRIVER.RGB1_CURRENT = "0b000001";
@@ -160,40 +173,44 @@ defparam RGB_DRIVER.RGB2_CURRENT = "0b000001";
 
 These `defparam` statements set the current for each of the RGB LEDs. The current values are typically defined in terms of 6-bit values to select different levels of brightness or current strength. Here, all three LEDs (red, green, and blue) are assigned a current value of `0b000001`, which is a low value, indicating low current (and possibly low brightness) for each LED.
 
----
+
 
 ## Final Observations from Verilog code
 
+---
+
 This Verilog code demonstrates the way to control an RGB LED and generate a blinking effect using an FPGA. The internal oscillator provides the clock signal, the frequency counter creates a periodic signal, and the RGB driver controls the LED states. By adjusting the counter size or the clock division factor, the blinking frequency can be modified. This code serves as a foundational example for more complex LED control and timing applications in FPGA designs.
 
----
 
 ## Creation of pcf file                                                                                        
 
-PCF stands for “Physical Constraints File”. The PCF is a critical component in FPGA design, and for the projects on VSDSquadron FM board. It defines how the logical signals in your design are mapped to the physical pins of the FPGA.
-
 ---
 
+PCF stands for “Physical Constraints File”. The PCF is a critical component in FPGA design, and for the projects on VSDSquadron FM board. It defines how the logical signals in your design are mapped to the physical pins of the FPGA.
+
+
 ### Need for pcf file                                                                                                                
+
+---
 
 - The VSDSquadron FM board has specific GPIO pins connected to the RGB LED. To control the LED, you need to tell the FPGA which physical pins correspond to the red, green, and blue channels of the LED.
 - Without a PCF file, the FPGA tools won't know how to map your design's logical signals (e.g., led_red, led_green, led_blue) to the actual hardware pins.
 
----
-
 
 ### Purpose of PCF File                                                                                                      
-      
+
+---
+
 - Pin Mapping: The PCF file specifies the exact FPGA pins connected to the RGB LED on the board. For example:
         - Pin for the red LED channel
         -  Pin for the green LED channel
         - Pin for the blue LED channel
 - ardware-Specific Configuration: It ensures your design aligns with the VSDSquadron FM board's hardware layout, preventing errors like incorrect signal routing or pin conflicts.
 
----
-
 
 ### PCF file for led blink                                                                                                                            
+
+---
 
 Below is the pcf file defined for the led blink project on VSD Squadron FM board:
 
@@ -223,6 +240,8 @@ Here's a brief overview of the pin assignments and their significance:
 
 ### Significance in Verilog Code and Board Hardware:  
 
+---
+
 #### RGB LED Control (`led_red`, `led_blue`, `led_green`)
 
 In the Verilog code, these signals are defined as outputs and connected to the RGB primitive (`SB_RGBA_DRV`). The assignments in the PCF file map them to pin 39 (red), pin 40 (blue), and pin 41 (green). The `SB_RGBA_DRV` module enables control of LED brightness and color, where:
@@ -237,5 +256,4 @@ Assigned to pin 20, this external clock is declared as an input in Verilog. Howe
 
 Assigned to pin 17, this signal outputs a divided clock derived from the internal oscillator. The code assigns `testwire` to `frequency_counter_i[5]`, making it a low-frequency signal useful for debugging or external monitoring.
 
----
 
