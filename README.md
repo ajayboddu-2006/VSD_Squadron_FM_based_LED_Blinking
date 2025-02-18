@@ -207,15 +207,13 @@ set_io testwire 17
 ```
 
 
-
-| **Signal**     | **FPGA Pin** | **Function**                         |
-|:-------------:|:-----------:|:------------------------------------:|
-| led_red       | 39          | Controls Red LED                     |
-| led_blue      | 40          | Controls Blue LED                    |
-| led_green     | 41          | Controls Green LED                   |
-| hw_clk        | 20          | External hardware clock input        |
-| testwire      | 17          | Debugging or external monitoring     |
-
 Here's a brief overview of the pin assignments and their significance:
 
 
+| **Signal**     | **FPGA Pin** | **Function**                                    		        |
+|:-------------:|:-----------:|:-----------------------------------------------------------------------:|
+| led_red       | 39          | Controls the red channel of the onboard RGB LED    			|
+| led_blue      | 40          | Controls the blue channel of the onboard RGB LED   			|
+| led_green     | 41          | Controls the green channel of the onboard RGB LED 		        |
+| hw_clk        | 20          | Receives the external hardware clock signal for FPGA timing		|
+| testwire      | 17          | General-purpose I/O pin for debugging or additional interfacing needs   |
