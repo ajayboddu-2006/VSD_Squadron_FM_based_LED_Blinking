@@ -206,6 +206,16 @@ set_io testwire 17
 
 ```
 
+
+
+| **Signal**     | **FPGA Pin** | **Function**                         |
+|:-------------:|:-----------:|:------------------------------------:|
+| led_red       | 39          | Controls Red LED                     |
+| led_blue      | 40          | Controls Blue LED                    |
+| led_green     | 41          | Controls Green LED                   |
+| hw_clk        | 20          | External hardware clock input        |
+| testwire      | 17          | Debugging or external monitoring     |
+
 Here's a brief overview of the pin assignments and their significance:
 
 
