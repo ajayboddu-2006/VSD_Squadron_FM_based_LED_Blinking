@@ -221,7 +221,7 @@ PCF stands for “Physical Constraints File”. The PCF is a critical component 
 
 Below is the pcf file defined for the led blink project on VSD Squadron FM board:
 
-```plaintext
+```
 set_io led_red 39 
 set_io led_blue 40 
 set_io led_green 41 
