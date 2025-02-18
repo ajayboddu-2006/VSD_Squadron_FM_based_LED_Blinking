@@ -217,3 +217,25 @@ Here's a brief overview of the pin assignments and their significance:
 | led_green     | 41          | Controls the green channel of the onboard RGB LED 		        |
 | hw_clk        | 20          | Receives the external hardware clock signal for FPGA timing		|
 | testwire      | 17          | General-purpose I/O pin for debugging or additional interfacing needs   |
+
+
+
+
+### Significance in Verilog Code and Board Hardware:  
+
+#### RGB LED Control (`led_red`, `led_blue`, `led_green`)
+
+In the Verilog code, these signals are defined as outputs and connected to the RGB primitive (`SB_RGBA_DRV`). The assignments in the PCF file map them to pin 39 (red), pin 40 (blue), and pin 41 (green). The `SB_RGBA_DRV` module enables control of LED brightness and color, where:
+- `RGB2PWM` is set to 1 (blue on)
+- `RGB0PWM` and `RGB1PWM` are set to 0 (red and green off)
+
+#### Hardware Clock (`hw_clk`)
+
+Assigned to pin 20, this external clock is declared as an input in Verilog. However, the provided code does not use `hw_clk` directly; instead, it employs an internal oscillator (`SB_HFOSC`) to drive the frequency counter.
+
+#### Test Wire (`testwire`)
+
+Assigned to pin 17, this signal outputs a divided clock derived from the internal oscillator. The code assigns `testwire` to `frequency_counter_i[5]`, making it a low-frequency signal useful for debugging or external monitoring.
+
+---
+
