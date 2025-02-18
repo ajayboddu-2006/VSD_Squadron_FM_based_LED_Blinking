@@ -34,6 +34,22 @@ module top (
 
 
 
+```verilog
+module top ( 
+    // Output wires for RGB LED control
+    output wire led_red,      // Pin for Red LED
+    output wire led_blue,     // Pin for Blue LED
+    output wire led_green,    // Pin for Green LED
+
+    // Input wire for external clock
+    input wire hw_clk,        // Hardware clock input
+
+    // Output wire for test signal
+    output wire testwire      // Test signal for debugging
+); 
+
+```
+
 
 #### Output Ports:
 - **`output wire led_red`**
