@@ -269,3 +269,38 @@ Assigned to pin 20, this external clock is declared as an input in Verilog. Howe
 Assigned to pin 17, this signal outputs a divided clock derived from the internal oscillator. The code assigns `testwire` to `frequency_counter_i[5]`, making it a low-frequency signal useful for debugging or external monitoring.
 
 
+<br>
+
+## Integration with VSD Squadron FPGA Mini Board  
+
+The **VSDSquadron FM** is a compact FPGA development board built around the **Lattice iCE40UP5K FPGA**, designed for low-power, high-efficiency embedded applications. It is widely used in digital logic design, IoT, and hardware prototyping due to its small form factor and rich set of features.  
+
+### VSD Squadron FPGA Mini Board Features  
+
+- **48-lead QFN package**  
+- **5.3K LUTs** for flexible logic design  
+- **1Mb SPRAM** and **120Kb DPRAM** for efficient memory usage  
+- **Onboard FTDI FT232H** USB-to-SPI interface for programming and communication  
+- **All 32 FPGA GPIO** accessible for rapid prototyping  
+- **Integrated 4MB SPI flash** for configuration and data storage  
+- **RGB LED** for user-defined signaling  
+- **Onboard 3.3V and 1.2V power regulators**, with the ability to supply 3.3V externally  
+
+### Development Tools for VSDSquadron FM  
+
+#### 1. Project IceStorm  
+**Project IceStorm** is an open-source toolchain for **Lattice iCE40 FPGAs**. It enables bitstream generation, allowing users to program FPGAs without proprietary tools.  
+- **Components**: `icepack` (bitstream packer), `iceprog` (flasher), `icetime` (timing analysis).  
+- **Purpose**: Converts synthesized netlists into bitstreams for FPGA configuration.  
+
+#### 2. Yosys  
+**Yosys** is an open-source synthesis tool for **Verilog** designs. It translates HDL code into a gate-level representation.  
+- **Purpose**: Logic synthesis, optimization, and technology mapping for FPGAs.  
+
+#### 3. NextPNR  
+**NextPNR** is a place-and-route tool that maps synthesized logic onto FPGA resources. It supports multiple FPGA architectures, including iCE40.  
+- **Purpose**: Assigns logic gates to physical FPGA locations and routes interconnections.  
+- **Key Features**: Timing-driven placement, constraint management, and multi-architecture support.  
+
+These tools collectively form a fully open-source FPGA design flow, enabling efficient FPGA development.  
+
