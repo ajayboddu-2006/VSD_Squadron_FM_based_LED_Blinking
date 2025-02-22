@@ -277,24 +277,24 @@ The **VSDSquadron FM** is a compact FPGA development board built around the **La
 
 ### VSD Squadron FPGA Mini Board Features  
 
-- **48-lead QFN package**  
-- **5.3K LUTs** for flexible logic design  
-- **1Mb SPRAM** and **120Kb DPRAM** for efficient memory usage  
-- **Onboard FTDI FT232H** USB-to-SPI interface for programming and communication  
-- **All 32 FPGA GPIO** accessible for rapid prototyping  
-- **Integrated 4MB SPI flash** for configuration and data storage  
-- **RGB LED** for user-defined signaling  
-- **Onboard 3.3V and 1.2V power regulators**, with the ability to supply 3.3V externally  
+- 48-lead QFN package  
+- 5.3K LUTs for flexible logic design  
+- 1Mb SPRAM and 120Kb DPRAM for efficient memory usage  
+- Onboard FTDI FT232H USB-to-SPI interface for programming and communication  
+- All 32 FPGA GPIO accessible for rapid prototyping  
+- Integrated 4MB SPI flash for configuration and data storage  
+- RGB LED for user-defined signaling  
+- Onboard 3.3V and 1.2V power regulators, with the ability to supply 3.3V externally  
 
 ### Development Tools for VSDSquadron FM  
 
 #### 1. Project IceStorm  
-**Project IceStorm** is an open-source toolchain for **Lattice iCE40 FPGAs**. It enables bitstream generation, allowing users to program FPGAs without proprietary tools.  
+**Project IceStorm** is an open-source toolchain for `Lattice iCE40 FPGAs`. It enables bitstream generation, allowing users to program FPGAs without proprietary tools.  
 - **Components**: `icepack` (bitstream packer), `iceprog` (flasher), `icetime` (timing analysis).  
 - **Purpose**: Converts synthesized netlists into bitstreams for FPGA configuration.  
 
 #### 2. Yosys  
-**Yosys** is an open-source synthesis tool for **Verilog** designs. It translates HDL code into a gate-level representation.  
+**Yosys** is an open-source synthesis tool for Verilog designs. It translates HDL code into a gate-level representation.  
 - **Purpose**: Logic synthesis, optimization, and technology mapping for FPGAs.  
 
 #### 3. NextPNR  
@@ -303,4 +303,23 @@ The **VSDSquadron FM** is a compact FPGA development board built around the **La
 - **Key Features**: Timing-driven placement, constraint management, and multi-architecture support.  
 
 These tools collectively form a fully open-source FPGA design flow, enabling efficient FPGA development.  
+
+
+
+<br>
+
+##Automating FPGA Workflow using Makefile                                                                                  
+
+A Makefile is a script used for automating repetitive tasks in software and hardware development. It simplifies project compilation, synthesis, place-and-route, bitstream generation, and flashing the FPGA. Instead of manually executing multiple commands, a Makefile ensures a structured and efficient workflow. 
+
+###Purpose of Makefile in this Project
+The Makefile automates the entire FPGA development process for the VSD Squadron FPGA Mini board. It handles the following tasks:
+    • **Synthesis** of Verilog code using **Yosys**
+    • **Placement and routing** with **NextPNR**
+    • **Timing analysis** using **Icetime**
+    • **Bitstream generation** with **Icepack**
+    • **Flashing** the FPGA using **Iceprog**
+    • **Serial communication** setup via Picocom**
+
+
 
