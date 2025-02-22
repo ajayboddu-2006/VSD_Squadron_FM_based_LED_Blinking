@@ -284,7 +284,10 @@ The **VSDSquadron FM** is a compact FPGA development board built around the **La
 - All 32 FPGA GPIO accessible for rapid prototyping  
 - Integrated 4MB SPI flash for configuration and data storage  
 - RGB LED for user-defined signaling  
-- Onboard 3.3V and 1.2V power regulators, with the ability to supply 3.3V externally  
+- Onboard 3.3V and 1.2V power regulators, with the ability to supply 3.3V externally
+
+ ![VSD Squadron FPGA Mini](./Images/FM_features.png)
+
 
 ### Development Tools for VSDSquadron FM  
 
