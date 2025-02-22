@@ -311,11 +311,11 @@ These tools collectively form a fully open-source FPGA design flow, enabling eff
 
 <br>
 
-##Automating FPGA Workflow using Makefile                                                                                  
+## Automating FPGA Workflow using Makefile                                                                                  
 
 A Makefile is a script used for automating repetitive tasks in software and hardware development. It simplifies project compilation, synthesis, place-and-route, bitstream generation, and flashing the FPGA. Instead of manually executing multiple commands, a Makefile ensures a structured and efficient workflow. 
 
-###Purpose of Makefile in this Project
+### Purpose of Makefile in this Project
 The Makefile automates the entire FPGA development process for the VSD Squadron FPGA Mini board. It handles the following tasks:
     • **Synthesis** of Verilog code using **Yosys**
     • **Placement and routing** with **NextPNR**
