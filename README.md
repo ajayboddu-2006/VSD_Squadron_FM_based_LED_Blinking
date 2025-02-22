@@ -317,12 +317,12 @@ A Makefile is a script used for automating repetitive tasks in software and hard
 
 ### Purpose of Makefile in this Project
 The Makefile automates the entire FPGA development process for the VSD Squadron FPGA Mini board. It handles the following tasks:
-    • **Synthesis** of Verilog code using **Yosys**
-    • **Placement and routing** with **NextPNR**
-    • **Timing analysis** using **Icetime**
-    • **Bitstream generation** with **Icepack**
-    • **Flashing** the FPGA using **Iceprog**
-    • **Serial communication** setup via Picocom**
+    - **Synthesis** of Verilog code using **Yosys**
+    - **Placement and routing** with **NextPNR**
+    - **Timing analysis** using **Icetime**
+    - **Bitstream generation** with **Icepack**
+    - **Flashing** the FPGA using **Iceprog**
+    - **Serial communication** setup via **Picocom**
 
 
 
